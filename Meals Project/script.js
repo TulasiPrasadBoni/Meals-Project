@@ -12,3 +12,31 @@ const mainContent = document.getElementById('mainContent');
 hamburger.onclick = () => { sidebar.style.display = 'flex'; }
 closeSidebar.onclick = () => { sidebar.style.display = 'none'; }
 
+// ===== FETCH & DISPLAY CATEGORIES =====
+fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
+  .then(res => res.json())
+  .then(data => {
+    categoriesGrid.innerHTML = "";
+    categoryList.innerHTML = "";
+
+    data.categories.forEach(cat => {
+      // Grid
+      const div = document.createElement('div');
+      div.className = 'category-card';
+      div.innerHTML = `
+        <img src="${cat.strCategoryThumb}" alt="${cat.strCategory}">
+        <span>${cat.strCategory}</span>
+      `;
+      div.onclick = () => loadMealsByCategory(cat.strCategory);
+      categoriesGrid.appendChild(div);
+
+      // Sidebar
+      const li = document.createElement('li');
+      li.textContent = cat.strCategory;
+      li.onclick = () => {
+        sidebar.style.display = 'none';
+        loadMealsByCategory(cat.strCategory);
+      };
+      categoryList.appendChild(li);
+    });
+  });
