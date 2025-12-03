@@ -40,3 +40,23 @@ fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
       categoryList.appendChild(li);
     });
   });
+
+  // ===== SEARCH MEALS =====
+searchBtn.onclick = () => {
+  const q = searchInput.value.trim();
+  if (q) {
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${q}`)
+      .then(res => res.json())
+      .then(data => {
+        categoriesGrid.innerHTML = "";
+        mainContent.innerHTML = "";
+        if (data.meals) {
+          data.meals.forEach(meal => {
+            displayMealCard(meal);
+          });
+        } else {
+          categoriesGrid.innerHTML = "<p>No food found.</p>";
+        }
+      });
+  }
+};
