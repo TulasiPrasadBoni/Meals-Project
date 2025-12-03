@@ -60,3 +60,28 @@ searchBtn.onclick = () => {
       });
   }
 };
+
+// ===== LOAD MEALS BY CATEGORY =====
+function loadMealsByCategory(cat) {
+  fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`)
+    .then(res => res.json())
+    .then(data => {
+      categoriesGrid.innerHTML = "";
+      mainContent.innerHTML = "";
+      data.meals.forEach(meal => {
+        displayMealCard(meal);
+      });
+    });
+}
+
+// ===== DISPLAY MEAL CARD & DETAILS =====
+function displayMealCard(meal) {
+  const div = document.createElement('div');
+  div.className = 'category-card';
+  div.innerHTML = `
+    <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+    <span>${meal.strMeal}</span>
+  `;
+  div.onclick = () => loadMealDetails(meal.idMeal);
+  categoriesGrid.appendChild(div);
+}

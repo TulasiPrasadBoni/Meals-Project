@@ -11,12 +11,12 @@ p{
     color: black;
 }
 ul{
-    background-color: coral;
+    background-color: rgb(253, 152, 116);
     width: 300px;
 }
 
 .navbar {
-    background: coral;
+    background: rgb(252, 170, 140);
     color: white;
     display: flex;
     justify-content: space-between;
@@ -49,7 +49,7 @@ ul{
 }
 
 .banner button {
-    background: coral;
+    background: rgb(252, 161, 127);
     color: whitesmoke;
     border: none;
     border-radius: 50%;
@@ -121,5 +121,5 @@ section {
     display: block;
     margin-top: 8px;
     font-weight: bold;
-    color: rgb(235, 166, 141);
+    color: rgb(247, 158, 126);
 }
