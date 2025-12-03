@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meal Finder</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <span class="logo"><i class="fa fa-home"></i> MEAL FINDER</span>
+        <span class="menu">
+            <i class="fa fa-bars" id="hamburger"></i>
+        </span>
+    </nav>
+    <aside class="sidebar" id="sidebar">
+        <span id="closeSidebar">&times;</span>
+        <ul id="categoryList"></ul>
+    </aside>
+    <div class="banner">
+        <input type="text" id="searchInput" placeholder="Search recipes here ...">
+        <button id="searchBtn"><i class="fa fa-search"></i></button>
+        <h1>What are your favorite cuisines?</h1>
+        <p>PERSONALIZE YOUR EXPERIENCE</p>
+    </div>
+    <section>
+        <h2>CATEGORIES</h2>
+        <div id="categoriesGrid"></div>
+    </section>
+    <main id="mainContent"></main>
+    <script src="./script.js"></script>
+</body>
+
+</html>
